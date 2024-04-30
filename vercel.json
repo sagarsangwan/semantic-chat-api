@@ -1,4 +1,9 @@
 {
+  "builds": [
+    {
+      "src": "build_files.sh"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
