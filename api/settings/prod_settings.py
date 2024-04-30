@@ -1,6 +1,8 @@
 import dj_database_url
 import os
 
+from api.ss import BASE_DIR
+
 
 DEBUG = False
 
@@ -11,3 +13,5 @@ SUPABASE_DB_URL = os.environ.get("SUPABASE_DB_URL")
 DATABASES = {
     "default": dj_database_url.config(default=SUPABASE_DB_URL, conn_max_age=600)
 }
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
