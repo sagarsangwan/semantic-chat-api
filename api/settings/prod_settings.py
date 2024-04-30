@@ -20,7 +20,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles", "static")
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         "HOST": os.environ.get("HOST"),
         "NAME": os.environ.get("NAME"),
         "USER": os.environ.get("USER"),

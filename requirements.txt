@@ -3,6 +3,6 @@ djangorestframework==3.15.1
 drf_social_oauth2==2.2.0
 python-dotenv==1.0.1
 django-cors-headers==4.3.1
-dj-database-url==2.1.0
+dj-database-url==1.0.0
 urllib3==1.26.6
 psycopg2-binary==2.9.9
