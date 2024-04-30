@@ -3,7 +3,7 @@ import os
 from api.settings.base_settings import BASE_DIR
 
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = [".vercel.app", "sagarsangwan.vercel.app", ".now.sh"]
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 # STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
