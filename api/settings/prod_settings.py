@@ -4,7 +4,7 @@ from api.settings.base_settings import BASE_DIR
 
 
 DEBUG = True
-ALLOWED_HOSTS = [".vercel.app", "sagarsangwan.vercel.app", ".now.sh"]
+ALLOWED_HOSTS = [".vercel.app", "semantic-chat-api.vercel.app", ".now.sh"]
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 # STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 #
@@ -21,10 +21,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles", "static")
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "HOST": os.environ.get("HOST"),
         "NAME": os.environ.get("NAME"),
         "USER": os.environ.get("USER"),
         "PASSWORD": os.environ.get("PASSWORD"),
+        "HOST": os.environ.get("HOST"),
         "PORT": os.environ.get("PORT"),
     }
 }
