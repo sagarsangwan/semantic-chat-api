@@ -9,8 +9,8 @@ def index(request):
     html = f"""
     <html>
         <body>
-            <h1>Hello from example</h1>
-            <p>The current time is { now }.</p>
+            <h1>Hello from core app</h1>
+            <p>The current time is { now }. </p>
         </body>
     </html>
     """
