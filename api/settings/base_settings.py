@@ -139,14 +139,25 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("NAME"),
-        "USER": os.environ.get("USER"),
-        "PASSWORD": os.environ.get("PASSWORD"),
-        "HOST": os.environ.get("HOST"),
-        "PORT": 5432,
-        "CERT": "config.prod-ca-2021.crt",
+
+if os.environ.get("mod") == "production":
+    print("--------------------------------------production")
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.environ.get("NAME"),
+            "USER": os.environ.get("USER"),
+            "PASSWORD": os.environ.get("PASSWORD"),
+            "HOST": os.environ.get("HOST"),
+            "PORT": 5432,
+            "CERT": "config.prod-ca-2021.crt",
+        }
     }
-}
+else:
+    print("_--------------------------local")
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
