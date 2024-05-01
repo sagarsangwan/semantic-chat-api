@@ -139,19 +139,14 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+import dj_database_url
 
 if os.environ.get("mod") == "production":
     print("--------------------------------------production")
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": os.environ.get("NAME"),
-            "USER": os.environ.get("USER"),
-            "PASSWORD": os.environ.get("PASSWORD"),
-            "HOST": os.environ.get("HOST"),
-            "PORT": 5432,
-            "CERT": "config.prod-ca-2021.crt",
-        }
+        "default": dj_database_url.config(
+            default="sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
+        )
     }
 else:
     print("_--------------------------local")
