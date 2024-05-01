@@ -18,19 +18,3 @@ STATICFILES_DIRS = [
 # Configures the staticfiles directory to serve
 # static files from /static/ on our deployment
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles", "static")
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("NAME"),
-        "USER": os.environ.get("USER"),
-        "PASSWORD": os.environ.get("PASSWORD"),
-        "HOST": os.environ.get("HOST"),
-        "PORT": os.environ.get("PORT"),
-    }
-}
-# import dj_database_url
-
-# SUPABASE_DB_URL = os.environ.get("SUPABASE_DB_URL")
-# DATABASES = {
-#     "default": dj_database_url.config(default=SUPABASE_DB_URL, conn_max_age=600)
-# }
