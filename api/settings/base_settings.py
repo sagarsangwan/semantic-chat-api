@@ -142,21 +142,21 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 import dj_database_url
 
-if os.environ.get("mod") == "production":
-    print("--------------------------------------production")
-    DATABASES = {
-        "default": dj_database_url.config(
-            default="sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
-        )
+# if os.environ.get("mod") == "production":
+#     print("--------------------------------------production")
+#     DATABASES = {
+#         "default": dj_database_url.config(
+#             default="sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
+#         )
+#     }
+# else:
+#     print("_--------------------------local")
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
-else:
-    print("_--------------------------local")
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
+}
 SOCIAL_AUTH_PIPELINE = (
     "social_core.pipeline.social_auth.social_details",
     "social_core.pipeline.social_auth.social_uid",
