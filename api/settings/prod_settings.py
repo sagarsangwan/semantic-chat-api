@@ -7,6 +7,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     ".vercel.app",
     "semantic-chat-api.vercel.app",
+    "code-chatroom.vercel.app",
     ".now.sh",
     "127.0.0.1",
     "iamsagarsangwan.pythonanywhere.com",
