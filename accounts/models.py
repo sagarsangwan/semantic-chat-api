@@ -7,4 +7,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     picture = models.TextField(null=True, blank=True)
 
+    class Meta:
+        app_label = "accounts"
+
     # bio = models.TextField(null=True, blank=True)
