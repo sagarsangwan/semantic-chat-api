@@ -11,7 +11,7 @@ ALLOWED_HOSTS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://code-chatroom.vercel.app/",
+    "https://code-chatroom.vercel.app",
 ]
 
 
