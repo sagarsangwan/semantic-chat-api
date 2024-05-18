@@ -11,5 +11,12 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     # "localhost",
     "http://127.0.0.1:3000",
+    "https://code-chatroom.vercel.app",
 ]
-ALLOWED_HOSTS = ["127.0.0.1", "localhost:8000", "http://127.0.0.1:8000"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost:8000",
+    "http://127.0.0.1:8000",
+    "https://code-chatroom.vercel.app",
+    "code-chatroom.vercel.app",
+]

@@ -9,6 +9,8 @@ load_dotenv()
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get("SOCIAL_AUTH_FACEBOOK_KEY")
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get("SOCIAL_AUTH_FACEBOOK_SECRET")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -35,6 +37,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "core",
     "accounts",
+    "coderoom",
 ]
 
 MIDDLEWARE = [
@@ -77,6 +80,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 WSGI_APPLICATION = "api.wsgi.app"
 
 REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    ],
     "DEFAULT_AUTHENTICATION_CLASSES": (
         # 'oauth2_provider.ext.rest_framework.OAuth2Authentication',  # django-oauth-toolkit < 1.0.0
         "oauth2_provider.contrib.rest_framework.OAuth2Authentication",  # django-oauth-toolkit >= 1.0.0
@@ -88,6 +94,9 @@ REST_FRAMEWORK = {
 AUTHENTICATION_BACKENDS = (
     # Google OAuth2
     "social_core.backends.google.GoogleOAuth2",
+    # Facebook OAuth2
+    "social_core.backends.facebook.FacebookAppOAuth2",
+    "social_core.backends.facebook.FacebookOAuth2",
     # drf-social-oauth2
     "drf_social_oauth2.backends.DjangoOAuth2",
     # Django
@@ -98,7 +107,13 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
     "https://www.googleapis.com/auth/userinfo.email",
     "https://www.googleapis.com/auth/userinfo.profile",
 ]
+SOCIAL_AUTH_FACEBOOK_API_VERSION = "2.10"
 
+SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    "locale": "ru_RU",
+    "fields": "id, name, email, age_range",
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

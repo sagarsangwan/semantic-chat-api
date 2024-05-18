@@ -26,6 +26,7 @@ urlpatterns = [
     path("auth/", include("drf_social_oauth2.urls", namespace="drf")),
     path("", include("social_django.urls", namespace="social")),
     path("api/", include("accounts.urls")),
+    path("api/", include("coderoom.urls")),
 ]
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
